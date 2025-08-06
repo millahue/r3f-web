@@ -1,7 +1,7 @@
-"use client";
+'use client'
 
-import { useRef, useState } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useRef, useState } from 'react'
+import { useFrame } from '@react-three/fiber'
 import {
   RoundedBox,
   Cylinder,
@@ -11,24 +11,23 @@ import {
   Float,
   Sparkles,
   Stars,
-} from "@react-three/drei";
-import { Mesh, Vector3 } from "three";
+} from '@react-three/drei'
+import { Mesh, Vector3 } from 'three'
 
 // RoundedBox interactivo
 export function InteractiveRoundedBox() {
-  const meshRef = useRef<Mesh>(null);
-  const [hovered, setHovered] = useState(false);
-  const [clicked, setClicked] = useState(false);
+  const meshRef = useRef<Mesh>(null)
+  const [hovered, setHovered] = useState(false)
+  const [clicked, setClicked] = useState(false)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      meshRef.current.rotation.x =
-        Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-      meshRef.current.rotation.y += hovered ? 0.02 : 0.005;
-      const scale = clicked ? 1.2 : hovered ? 1.1 : 1;
-      meshRef.current.scale.lerp(new Vector3(scale, scale, scale), 0.1);
+      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.1
+      meshRef.current.rotation.y += hovered ? 0.02 : 0.005
+      const scale = clicked ? 1.2 : hovered ? 1.1 : 1
+      meshRef.current.scale.lerp(new Vector3(scale, scale, scale), 0.1)
     }
-  });
+  })
 
   return (
     <mesh
@@ -40,25 +39,25 @@ export function InteractiveRoundedBox() {
     >
       <RoundedBox args={[1, 1, 1]} radius={0.1} smoothness={4}>
         <meshStandardMaterial
-          color={clicked ? "#ff6b6b" : hovered ? "#4ecdc4" : "#45b7d1"}
+          color={clicked ? '#ff6b6b' : hovered ? '#4ecdc4' : '#45b7d1'}
           metalness={0.6}
           roughness={0.3}
         />
       </RoundedBox>
     </mesh>
-  );
+  )
 }
 
 // Cilindro rotatorio con efectos
 export function GlowingCylinder() {
-  const meshRef = useRef<Mesh>(null);
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      meshRef.current.rotation.y += 0.01;
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 2) * 0.3;
+      meshRef.current.rotation.y += 0.01
+      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 2) * 0.3
     }
-  });
+  })
 
   return (
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
@@ -81,21 +80,21 @@ export function GlowingCylinder() {
         />
       </mesh>
     </Float>
-  );
+  )
 }
 
 // Cono con animación orbital
 export function OrbitingCone() {
-  const meshRef = useRef<Mesh>(null);
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      const time = state.clock.elapsedTime;
-      meshRef.current.position.x = Math.cos(time * 0.8) * 2.5;
-      meshRef.current.position.z = Math.sin(time * 0.8) * 2.5;
-      meshRef.current.rotation.z = time * 0.5;
+      const time = state.clock.elapsedTime
+      meshRef.current.position.x = Math.cos(time * 0.8) * 2.5
+      meshRef.current.position.z = Math.sin(time * 0.8) * 2.5
+      meshRef.current.rotation.z = time * 0.5
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[0, -1, 0]}>
@@ -108,21 +107,21 @@ export function OrbitingCone() {
         />
       </Cone>
     </mesh>
-  );
+  )
 }
 
 // Ring pulsante con efectos
 export function PulsatingRing() {
-  const meshRef = useRef<Mesh>(null);
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      const pulse = 1 + Math.sin(state.clock.elapsedTime * 3) * 0.2;
-      meshRef.current.scale.setScalar(pulse);
-      meshRef.current.rotation.x += 0.01;
-      meshRef.current.rotation.y += 0.02;
+      const pulse = 1 + Math.sin(state.clock.elapsedTime * 3) * 0.2
+      meshRef.current.scale.setScalar(pulse)
+      meshRef.current.rotation.x += 0.01
+      meshRef.current.rotation.y += 0.02
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[0, 2.5, -1]}>
@@ -137,19 +136,20 @@ export function PulsatingRing() {
         />
       </Ring>
     </mesh>
-  );
+  )
 }
 
 // Plano ondulado
 export function WavyPlane() {
-  const meshRef = useRef<Mesh>(null);
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      meshRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 2) * 0.2 - 3;
+      meshRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.5) * 0.1
+      meshRef.current.position.y =
+        Math.sin(state.clock.elapsedTime * 2) * 0.2 - 3
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[0, -3, 0]} rotation={[-Math.PI / 2, 0, 0]}>
@@ -161,21 +161,20 @@ export function WavyPlane() {
         wireframe={true}
       />
     </mesh>
-  );
+  )
 }
 
 // Texto 3D flotante
 export function FloatingText3D() {
-  const textRef = useRef<Mesh>(null);
+  const textRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (textRef.current) {
-      textRef.current.rotation.y =
-        Math.sin(state.clock.elapsedTime * 0.5) * 0.3;
+      textRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.3
       textRef.current.position.y =
-        Math.sin(state.clock.elapsedTime * 1.2) * 0.5 + 2;
+        Math.sin(state.clock.elapsedTime * 1.2) * 0.5 + 2
     }
-  });
+  })
 
   return (
     <Center>
@@ -190,7 +189,7 @@ export function FloatingText3D() {
         </mesh>
       </Float>
     </Center>
-  );
+  )
 }
 
 // Ambiente con efectos
@@ -218,5 +217,5 @@ export function SceneEffects() {
         color="#ffffff"
       />
     </>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-"use client";
+'use client'
 
-import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
 import {
   Sphere,
   Torus,
@@ -9,21 +9,20 @@ import {
   Icosahedron,
   Dodecahedron,
   Tetrahedron,
-} from "@react-three/drei";
-import { Mesh, MeshStandardMaterial } from "three";
+} from '@react-three/drei'
+import type { Mesh, MeshStandardMaterial } from 'three'
 
 // Esfera flotante con material holográfico
-export function FloatingSphere() {
-  const meshRef = useRef<Mesh>(null);
+export const FloatingSphere = () => {
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime) * 0.2;
-      meshRef.current.rotation.y += 0.01;
-      meshRef.current.position.y =
-        Math.sin(state.clock.elapsedTime * 1.5) * 0.5;
+      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime) * 0.2
+      meshRef.current.rotation.y += 0.01
+      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.5) * 0.5
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[2, 0, 0]}>
@@ -38,25 +37,25 @@ export function FloatingSphere() {
         />
       </Sphere>
     </mesh>
-  );
+  )
 }
 
 // Torus giratorio con efectos de color
-export function SpinningTorus() {
-  const meshRef = useRef<Mesh>(null);
+export const SpinningTorus = () => {
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      meshRef.current.rotation.x += 0.02;
-      meshRef.current.rotation.z += 0.01;
+      meshRef.current.rotation.x += 0.02
+      meshRef.current.rotation.z += 0.01
       // Color que cambia con el tiempo
-      const material = meshRef.current.material as MeshStandardMaterial;
-      if (material && "color" in material) {
-        const time = state.clock.elapsedTime;
-        material.color.setHSL((time * 0.1) % 1, 0.7, 0.6);
+      const material = meshRef.current.material as MeshStandardMaterial
+      if (material && 'color' in material) {
+        const time = state.clock.elapsedTime
+        material.color.setHSL((time * 0.1) % 1, 0.7, 0.6)
       }
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[-2, 1, 1]}>
@@ -64,20 +63,20 @@ export function SpinningTorus() {
         <meshStandardMaterial color="#10b981" metalness={0.5} roughness={0.3} />
       </Torus>
     </mesh>
-  );
+  )
 }
 
 // Octahedron pulsante
-export function PulsatingOctahedron() {
-  const meshRef = useRef<Mesh>(null);
+export const PulsatingOctahedron = () => {
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      const scale = 1 + Math.sin(state.clock.elapsedTime * 2) * 0.3;
-      meshRef.current.scale.setScalar(scale);
-      meshRef.current.rotation.y += 0.015;
+      const scale = 1 + Math.sin(state.clock.elapsedTime * 2) * 0.3
+      meshRef.current.scale.setScalar(scale)
+      meshRef.current.rotation.y += 0.015
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[0, -2, -1]}>
@@ -91,24 +90,21 @@ export function PulsatingOctahedron() {
         />
       </Octahedron>
     </mesh>
-  );
+  )
 }
 
 // Icosahedron con animación compleja
-export function AnimatedIcosahedron() {
-  const meshRef = useRef<Mesh>(null);
+export const AnimatedIcosahedron = () => {
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      meshRef.current.rotation.x =
-        Math.sin(state.clock.elapsedTime * 0.5) * 0.5;
-      meshRef.current.rotation.y += 0.008;
-      meshRef.current.position.x =
-        Math.cos(state.clock.elapsedTime * 0.8) * 1.5;
-      meshRef.current.position.z =
-        Math.sin(state.clock.elapsedTime * 0.8) * 1.5;
+      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.5
+      meshRef.current.rotation.y += 0.008
+      meshRef.current.position.x = Math.cos(state.clock.elapsedTime * 0.8) * 1.5
+      meshRef.current.position.z = Math.sin(state.clock.elapsedTime * 0.8) * 1.5
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[3, 1, 2]}>
@@ -122,23 +118,23 @@ export function AnimatedIcosahedron() {
         />
       </Icosahedron>
     </mesh>
-  );
+  )
 }
 
 // Dodecahedron orbitante
-export function OrbitingDodecahedron() {
-  const meshRef = useRef<Mesh>(null);
+export const OrbitingDodecahedron = () => {
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      const time = state.clock.elapsedTime;
-      meshRef.current.position.x = Math.cos(time * 0.7) * 3;
-      meshRef.current.position.y = Math.sin(time * 0.3) * 1;
-      meshRef.current.position.z = Math.sin(time * 0.7) * 3;
-      meshRef.current.rotation.x += 0.01;
-      meshRef.current.rotation.y += 0.02;
+      const time = state.clock.elapsedTime
+      meshRef.current.position.x = Math.cos(time * 0.7) * 3
+      meshRef.current.position.y = Math.sin(time * 0.3) * 1
+      meshRef.current.position.z = Math.sin(time * 0.7) * 3
+      meshRef.current.rotation.x += 0.01
+      meshRef.current.rotation.y += 0.02
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef}>
@@ -151,22 +147,22 @@ export function OrbitingDodecahedron() {
         />
       </Dodecahedron>
     </mesh>
-  );
+  )
 }
 
 // Tetrahedron danzante
-export function DancingTetrahedron() {
-  const meshRef = useRef<Mesh>(null);
+export const DancingTetrahedron = () => {
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      const time = state.clock.elapsedTime;
-      meshRef.current.position.y = Math.sin(time * 2) * 0.8 + 1;
-      meshRef.current.rotation.x = time * 0.5;
-      meshRef.current.rotation.y = time * 0.3;
-      meshRef.current.rotation.z = time * 0.7;
+      const time = state.clock.elapsedTime
+      meshRef.current.position.y = Math.sin(time * 2) * 0.8 + 1
+      meshRef.current.rotation.x = time * 0.5
+      meshRef.current.rotation.y = time * 0.3
+      meshRef.current.rotation.z = time * 0.7
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[-3, 0, -2]}>
@@ -180,5 +176,5 @@ export function DancingTetrahedron() {
         />
       </Tetrahedron>
     </mesh>
-  );
+  )
 }

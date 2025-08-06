@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { Canvas } from "@react-three/fiber";
+import { Canvas } from '@react-three/fiber'
 import {
   OrbitControls,
   Environment,
@@ -9,32 +9,29 @@ import {
   Stars,
   MeshReflectorMaterial,
   ContactShadows,
-} from "@react-three/drei";
-import { Suspense } from "react";
-import RotatingCube from "./RotatingCube";
+} from '@react-three/drei'
+import { Suspense } from 'react'
+import RotatingCube from './RotatingCube'
 import {
   FloatingSphere,
   SpinningTorus,
   PulsatingOctahedron,
   AnimatedIcosahedron,
   DancingTetrahedron,
-} from "./GeometricShapes";
+} from './GeometricShapes'
 import {
   InteractiveRoundedBox,
   GlowingCylinder,
   OrbitingCone,
   PulsatingRing,
-} from "./DreiElements";
-import {
-  DistortedTorus,
-  WobbleBox,
-} from "./AdvancedElements";
+} from './DreiElements'
+import { DistortedTorus, WobbleBox } from './AdvancedElements'
 
 interface SimpleSceneProps {
-  className?: string;
+  className?: string
 }
 
-export default function SimpleScene({ className }: SimpleSceneProps) {
+const SimpleScene = ({ className }: SimpleSceneProps) => {
   return (
     <div className={`w-full h-full ${className}`}>
       <Canvas
@@ -44,7 +41,7 @@ export default function SimpleScene({ className }: SimpleSceneProps) {
         className="bg-gradient-to-br from-slate-900 to-slate-700"
       >
         <PerspectiveCamera makeDefault position={[0, 0, 8]} />
-        
+
         {/* Luces básicas */}
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
@@ -52,7 +49,7 @@ export default function SimpleScene({ className }: SimpleSceneProps) {
 
         <Suspense fallback={null}>
           <Environment preset="city" />
-          
+
           {/* Efectos de ambiente */}
           <Stars
             radius={100}
@@ -63,7 +60,7 @@ export default function SimpleScene({ className }: SimpleSceneProps) {
             fade={true}
             speed={1}
           />
-          
+
           <Sparkles
             count={30}
             scale={[8, 8, 8]}
@@ -72,34 +69,34 @@ export default function SimpleScene({ className }: SimpleSceneProps) {
             opacity={0.6}
             color="#ffffff"
           />
-          
+
           {/* Cubos básicos que sabemos que funcionan */}
           <RotatingCube position={[-3, -1, 0]} color="#ff6b6b" />
           <RotatingCube position={[3, -1, 0]} color="#4ecdc4" />
           <RotatingCube position={[0, 1, 0]} color="#45b7d1" />
           <RotatingCube position={[0, -3, 0]} color="#96ceb4" />
-          
+
           {/* Elementos geométricos básicos */}
           <FloatingSphere />
           <SpinningTorus />
           <PulsatingOctahedron />
           <AnimatedIcosahedron />
           <DancingTetrahedron />
-          
+
           {/* Elementos drei que funcionan bien */}
           <InteractiveRoundedBox />
           <GlowingCylinder />
           <OrbitingCone />
           <PulsatingRing />
-          
+
           {/* Elementos avanzados con materiales especiales */}
           <DistortedTorus />
           <WobbleBox />
-          
+
           {/* Base reflectante como suelo */}
-          <mesh 
-            rotation={[-Math.PI / 2, 0, 0]} 
-            position={[0, -4, 0]} 
+          <mesh
+            rotation={[-Math.PI / 2, 0, 0]}
+            position={[0, -4, 0]}
             receiveShadow
           >
             <planeGeometry args={[20, 20]} />
@@ -116,7 +113,7 @@ export default function SimpleScene({ className }: SimpleSceneProps) {
               metalness={0.5}
             />
           </mesh>
-          
+
           {/* Sombras de contacto para mayor realismo */}
           <ContactShadows
             position={[0, -3.9, 0]}
@@ -138,5 +135,7 @@ export default function SimpleScene({ className }: SimpleSceneProps) {
         />
       </Canvas>
     </div>
-  );
+  )
 }
+
+export default SimpleScene

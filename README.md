@@ -1,5 +1,7 @@
 # 🎯 Proyecto R3F Web | Next.js 15 + React Three Fiber
 
+![alt text](image.png)
+
 ## ✨ Descripción
 
 Un proyecto moderno y completo que demuestra el poder del desarrollo web 3D con **las últimas tecnologías**. Combina Next.js 15, React 19, React Three Fiber, Tailwind CSS v4 y Shadcn/ui con **optimización SEO completa** y **accesibilidad WCAG 2.1**.
@@ -7,22 +9,26 @@ Un proyecto moderno y completo que demuestra el poder del desarrollo web 3D con 
 ## 🚀 Tecnologías Utilizadas
 
 ### Core Framework
+
 - **Next.js 15** - App Router, Server Components, Turbopack
 - **React 19** - Última versión con compatibilidad total
 - **TypeScript** - Tipado estático completo
 
 ### 3D & Animaciones
+
 - **React Three Fiber v9** - Declarative 3D rendering
 - **@react-three/drei** - Helpers y utilidades 3D avanzadas
 - **@react-three/postprocessing** - Efectos post-procesado
 - **@react-spring/three** - Animaciones spring fluidas
 
 ### UI & Styling
+
 - **Tailwind CSS v4** - Utility-first CSS con características modernas
 - **Shadcn/ui** - Componentes hermosos y accesibles
 - **Stone Color Scheme** - Paleta de colores profesional
 
 ### Desarrollo & Calidad
+
 - **ESLint** - Linting de código
 - **Prettier** - Formateo automático
 - **VS Code Extensions** - Configuración optimizada
@@ -30,6 +36,7 @@ Un proyecto moderno y completo que demuestra el poder del desarrollo web 3D con 
 ## 🌟 Características Implementadas
 
 ### 🎮 Experiencia 3D Avanzada
+
 - **Escena 3D interactiva** con controles OrbitControls
 - **Objetos animados** con Float, Trail y MeshDistortMaterial
 - **Efectos visuales** con @react-three/postprocessing
@@ -37,8 +44,9 @@ Un proyecto moderno y completo que demuestra el poder del desarrollo web 3D con 
 - **Carga optimizada** con dynamic imports y Suspense
 
 ### 🔍 SEO Optimización Completa
+
 - **Open Graph Tags** - Facebook, LinkedIn sharing
-- **Twitter Cards** - Twitter sharing optimizado  
+- **Twitter Cards** - Twitter sharing optimizado
 - **JSON-LD Structured Data** - Schema.org markup
 - **Sitemap XML** automático
 - **Robots.txt** configurado
@@ -47,6 +55,7 @@ Un proyecto moderno y completo que demuestra el poder del desarrollo web 3D con 
 - **PWA Manifest** completo
 
 ### ♿ Accesibilidad WCAG 2.1
+
 - **Skip links** para navegación por teclado
 - **ARIA labels** y landmarks semánticos
 - **Screen reader support** completo
@@ -57,6 +66,7 @@ Un proyecto moderno y completo que demuestra el poder del desarrollo web 3D con 
 - **Keyboard navigation** completa
 
 ### ⚡ Optimización de Rendimiento
+
 - **Turbopack** bundler ultrarrápido
 - **Server Components** renderizado optimizado
 - **Dynamic imports** para componentes 3D
@@ -91,24 +101,28 @@ r3f-web/
 ## 🛠️ Instalación y Configuración
 
 ### Prerrequisitos
-- Node.js 18+ 
+
+- Node.js 18+
 - npm o yarn
 - VS Code (recomendado)
 
 ### Pasos de Instalación
 
 1. **Clonar y entrar al directorio**
+
    ```bash
    git clone <repo-url>
    cd r3f-web
    ```
 
 2. **Instalar dependencias**
+
    ```bash
    npm install
    ```
 
 3. **Iniciar desarrollo**
+
    ```bash
    npm run dev
    ```
@@ -146,17 +160,20 @@ npm run format
 ## 🧩 Componentes 3D Principales
 
 ### ThreeScene.tsx
+
 - Canvas principal con configuración optimizada
 - Iluminación ambiental y direccional
 - OrbitControls con límites configurados
 - Stats de rendimiento (FPS, memoria)
 
 ### RotatingCube.tsx
+
 - Cubo básico con rotación automática
 - Material estándar con colores gradiente
 - Animación suave con useFrame
 
 ### EnhancedSphere.tsx
+
 - Esfera con efectos drei avanzados
 - Float animation para movimiento orgánico
 - Trail para rastro visual
@@ -165,6 +182,7 @@ npm run format
 ## 📱 PWA Support
 
 El proyecto incluye soporte completo para PWA:
+
 - **Manifest** configurado
 - **Service Worker** ready
 - **Iconos** para todas las plataformas
@@ -173,6 +191,7 @@ El proyecto incluye soporte completo para PWA:
 ## 🔧 Configuración VS Code
 
 ### Extensiones Recomendadas
+
 - ES7+ React/Redux/React-Native snippets
 - Tailwind CSS IntelliSense
 - TypeScript Importer
@@ -181,24 +200,28 @@ El proyecto incluye soporte completo para PWA:
 - ESLint
 
 ### Tareas Incluidas
+
 - **Build**: `Ctrl+Shift+P` → "Tasks: Run Task" → "build"
 - **Dev**: Inicio automático del servidor de desarrollo
 
 ## 🌐 Deployment
 
 ### Vercel (Recomendado)
+
 ```bash
 npm install -g vercel
 vercel --prod
 ```
 
 ### Netlify
+
 ```bash
 npm run build
 # Subir carpeta .next/
 ```
 
 ### Docker
+
 ```dockerfile
 FROM node:18-alpine
 WORKDIR /app
@@ -213,16 +236,19 @@ CMD ["npm", "start"]
 ## 🧪 Testing
 
 ### Accesibilidad
+
 - **axe-core** para auditorías automáticas
 - **Screen reader testing** con NVDA/JAWS
 - **Keyboard navigation** testing
 
 ### SEO
+
 - **Lighthouse** auditoría completa
-- **Google Search Console** validation  
+- **Google Search Console** validation
 - **Social Media Debuggers** (Facebook, Twitter)
 
 ### Performance
+
 - **Core Web Vitals** monitoring
 - **Bundle Analyzer** para optimización
 - **3D Performance** con Stats.js
@@ -230,12 +256,14 @@ CMD ["npm", "start"]
 ## 📊 Métricas de Rendimiento
 
 ### Core Web Vitals Típicos
+
 - **LCP**: < 1.5s
-- **FID**: < 100ms  
+- **FID**: < 100ms
 - **CLS**: < 0.1
 - **TTI**: < 2s
 
 ### Bundle Size
+
 - **Total JS**: ~112 KB (gzipped)
 - **Main bundle**: ~54 KB
 - **3D libraries**: ~43 KB
@@ -243,6 +271,7 @@ CMD ["npm", "start"]
 ## 🔄 Roadmap
 
 ### Próximas Características
+
 - [ ] **i18n** - Internacionalización completa
 - [ ] **Dark/Light Mode** - Tema dinámico
 - [ ] **More 3D Scenes** - Galería de ejemplos
@@ -266,7 +295,7 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más información.
 ## 🙏 Agradecimientos
 
 - **Next.js Team** - Framework increíble
-- **React Three Fiber** - 3D declarativo fantástico  
+- **React Three Fiber** - 3D declarativo fantástico
 - **Shadcn** - Componentes UI hermosos
 - **Tailwind CSS** - Utility-first CSS
 - **Vercel** - Deployment platform

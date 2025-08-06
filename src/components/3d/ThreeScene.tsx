@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import { Canvas } from "@react-three/fiber";
+import { Canvas } from '@react-three/fiber'
 import {
   OrbitControls,
   Environment,
   PerspectiveCamera,
   Stats,
-} from "@react-three/drei";
-import { Suspense } from "react";
-import RotatingCube from "./RotatingCube";
+} from '@react-three/drei'
+import { Suspense } from 'react'
+import RotatingCube from './RotatingCube'
 import {
   FloatingSphere,
   SpinningTorus,
@@ -16,7 +16,7 @@ import {
   AnimatedIcosahedron,
   OrbitingDodecahedron,
   DancingTetrahedron,
-} from "./GeometricShapes";
+} from './GeometricShapes'
 import {
   InteractiveRoundedBox,
   GlowingCylinder,
@@ -25,7 +25,7 @@ import {
   WavyPlane,
   FloatingText3D,
   SceneEffects,
-} from "./DreiElements";
+} from './DreiElements'
 import {
   DistortedTorus,
   WobbleBox,
@@ -34,10 +34,10 @@ import {
   ReflectiveSurface,
   GroundShadows,
   EnhancedLighting,
-} from "./AdvancedElements";
+} from './AdvancedElements'
 
 interface ThreeSceneProps {
-  className?: string;
+  className?: string
 }
 
 export default function ThreeScene({ className }: ThreeSceneProps) {
@@ -107,5 +107,5 @@ export default function ThreeScene({ className }: ThreeSceneProps) {
         <Stats />
       </Canvas>
     </div>
-  );
+  )
 }

@@ -1,28 +1,28 @@
-"use client";
+'use client'
 
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-import { Button } from "@/components/ui/button";
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { ModeToggle } from "@/components/theme-toggle";
+} from '@/components/ui/card'
+import { ModeToggle } from '@/components/theme-toggle'
 
 // Dynamic import to avoid SSR issues with Three.js
-const ThreeScene = dynamic(() => import("@/components/3d/SimpleScene"), {
+const ThreeScene = dynamic(() => import('@/components/3d/SimpleScene'), {
   ssr: false,
   loading: () => (
     <div className="w-full h-[400px] bg-gradient-to-br from-slate-900 to-slate-700 rounded-lg flex items-center justify-center">
       <div className="text-white">Loading 3D Scene...</div>
     </div>
   ),
-});
+})
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       {/* Header con Theme Toggle */}
@@ -287,24 +287,24 @@ export default function Home() {
                   role="list"
                 >
                   <li role="listitem">
-                    •{" "}
+                    •{' '}
                     <code className="bg-background px-2 py-1 rounded">
                       npm run dev
-                    </code>{" "}
+                    </code>{' '}
                     - Iniciar servidor de desarrollo
                   </li>
                   <li role="listitem">
-                    •{" "}
+                    •{' '}
                     <code className="bg-background px-2 py-1 rounded">
                       npm run build
-                    </code>{" "}
+                    </code>{' '}
                     - Construir para producción
                   </li>
                   <li role="listitem">
-                    •{" "}
+                    •{' '}
                     <code className="bg-background px-2 py-1 rounded">
                       npx shadcn@latest add [component]
-                    </code>{" "}
+                    </code>{' '}
                     - Añadir componentes UI
                   </li>
                 </ul>
@@ -314,5 +314,7 @@ export default function Home() {
         </section>
       </section>
     </div>
-  );
+  )
 }
+
+export default Home

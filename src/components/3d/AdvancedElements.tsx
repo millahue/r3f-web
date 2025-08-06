@@ -1,25 +1,25 @@
-"use client";
+'use client'
 
-import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
 import {
   MeshDistortMaterial,
   MeshWobbleMaterial,
   ContactShadows,
   MeshReflectorMaterial,
-} from "@react-three/drei";
-import { Mesh, Group } from "three";
+} from '@react-three/drei'
+import { Mesh, Group } from 'three'
 
 // Torus con material distorsionado
 export function DistortedTorus() {
-  const meshRef = useRef<Mesh>(null);
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.3;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.2;
+      meshRef.current.rotation.x = state.clock.elapsedTime * 0.3
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.2
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[3, 0, -2]}>
@@ -32,18 +32,18 @@ export function DistortedTorus() {
         roughness={0}
       />
     </mesh>
-  );
+  )
 }
 
 // Box con material wobble
 export function WobbleBox() {
-  const meshRef = useRef<Mesh>(null);
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.5;
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.5
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[-3, 1, 0]} castShadow receiveShadow>
@@ -57,21 +57,21 @@ export function WobbleBox() {
         metalness={0.8}
       />
     </mesh>
-  );
+  )
 }
 
 // Grupo con trail effect - Simplificado
 export function TrailingGroup() {
-  const groupRef = useRef<Group>(null);
+  const groupRef = useRef<Group>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (groupRef.current) {
-      groupRef.current.position.x = Math.sin(state.clock.elapsedTime * 1.5) * 3;
+      groupRef.current.position.x = Math.sin(state.clock.elapsedTime * 1.5) * 3
       groupRef.current.position.y =
-        Math.cos(state.clock.elapsedTime * 1.2) * 1.5;
-      groupRef.current.position.z = Math.sin(state.clock.elapsedTime * 0.8) * 2;
+        Math.cos(state.clock.elapsedTime * 1.2) * 1.5
+      groupRef.current.position.z = Math.sin(state.clock.elapsedTime * 0.8) * 2
     }
-  });
+  })
 
   return (
     <group ref={groupRef}>
@@ -84,26 +84,26 @@ export function TrailingGroup() {
         />
       </mesh>
     </group>
-  );
+  )
 }
 
 // Box con decoraciones - Simplificado
 export function DecalBox() {
-  const meshRef = useRef<Mesh>(null);
+  const meshRef = useRef<Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(state => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.1;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.15;
+      meshRef.current.rotation.x = state.clock.elapsedTime * 0.1
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.15
     }
-  });
+  })
 
   return (
     <mesh ref={meshRef} position={[0, 0, 3]}>
       <boxGeometry args={[2, 2, 2]} />
       <meshStandardMaterial color="#34d399" metalness={0.6} roughness={0.4} />
     </mesh>
-  );
+  )
 }
 
 // Espejo reflectante en el suelo
@@ -124,7 +124,7 @@ export function ReflectiveSurface() {
         metalness={0.5}
       />
     </mesh>
-  );
+  )
 }
 
 // Sombras de contacto para mejor realismo
@@ -139,7 +139,7 @@ export function GroundShadows() {
       resolution={256}
       color="#000000"
     />
-  );
+  )
 }
 
 // Configuración de luces mejorada
@@ -176,5 +176,5 @@ export function EnhancedLighting() {
       {/* Luz ambiental suave */}
       <ambientLight intensity={0.2} color="#ffffff" />
     </>
-  );
+  )
 }
