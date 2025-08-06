@@ -4,13 +4,24 @@ import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { Button } from '@/components/ui/button'
 import {
-  Card,
+  GlowingCard,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
+} from '@/components/ui/glowing-card'
+import { Card } from '@/components/ui/card'
 import { ModeToggle } from '@/components/theme-toggle'
+import {
+  Zap,
+  Box,
+  Palette,
+  Component,
+  Code2,
+  Gauge,
+  MousePointer,
+  Terminal,
+} from 'lucide-react'
 
 // Dynamic import to avoid SSR issues with Three.js
 const ThreeScene = dynamic(() => import('@/components/3d/SimpleScene'), {
@@ -112,13 +123,10 @@ const Home = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
             role="list"
           >
-            <Card className="hover:shadow-lg transition-shadow" role="listitem">
+            <GlowingCard>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <span
-                    className="w-2 h-2 bg-green-500 rounded-full"
-                    aria-hidden="true"
-                  ></span>
+                  <Zap className="w-5 h-5 text-green-500" />
                   Next.js 15
                 </CardTitle>
                 <CardDescription>
@@ -132,15 +140,12 @@ const Home = () => {
                   modernas.
                 </p>
               </CardContent>
-            </Card>
+            </GlowingCard>
 
-            <Card className="hover:shadow-lg transition-shadow" role="listitem">
+            <GlowingCard>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <span
-                    className="w-2 h-2 bg-blue-500 rounded-full"
-                    aria-hidden="true"
-                  ></span>
+                  <Box className="w-5 h-5 text-blue-500" />
                   React Three Fiber
                 </CardTitle>
                 <CardDescription>
@@ -152,15 +157,12 @@ const Home = () => {
                   Componentes 3D interactivos con la potencia de Three.js.
                 </p>
               </CardContent>
-            </Card>
+            </GlowingCard>
 
-            <Card className="hover:shadow-lg transition-shadow" role="listitem">
+            <GlowingCard>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <span
-                    className="w-2 h-2 bg-purple-500 rounded-full"
-                    aria-hidden="true"
-                  ></span>
+                  <Palette className="w-5 h-5 text-purple-500" />
                   Tailwind CSS v4
                 </CardTitle>
                 <CardDescription>
@@ -172,15 +174,12 @@ const Home = () => {
                   Estilos modernos con soporte para gradientes P3 y más.
                 </p>
               </CardContent>
-            </Card>
+            </GlowingCard>
 
-            <Card className="hover:shadow-lg transition-shadow" role="listitem">
+            <GlowingCard>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <span
-                    className="w-2 h-2 bg-orange-500 rounded-full"
-                    aria-hidden="true"
-                  ></span>
+                  <Component className="w-5 h-5 text-orange-500" />
                   Shadcn/ui
                 </CardTitle>
                 <CardDescription>
@@ -192,15 +191,12 @@ const Home = () => {
                   UI components modernos con diseño consistente.
                 </p>
               </CardContent>
-            </Card>
+            </GlowingCard>
 
-            <Card className="hover:shadow-lg transition-shadow" role="listitem">
+            <GlowingCard>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <span
-                    className="w-2 h-2 bg-red-500 rounded-full"
-                    aria-hidden="true"
-                  ></span>
+                  <Code2 className="w-5 h-5 text-red-500" />
                   TypeScript
                 </CardTitle>
                 <CardDescription>
@@ -212,15 +208,12 @@ const Home = () => {
                   Tipado estático para mejor desarrollo y mantenimiento.
                 </p>
               </CardContent>
-            </Card>
+            </GlowingCard>
 
-            <Card className="hover:shadow-lg transition-shadow" role="listitem">
+            <GlowingCard>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <span
-                    className="w-2 h-2 bg-teal-500 rounded-full"
-                    aria-hidden="true"
-                  ></span>
+                  <Gauge className="w-5 h-5 text-teal-500" />
                   Optimizado
                 </CardTitle>
                 <CardDescription>
@@ -232,7 +225,7 @@ const Home = () => {
                   Bundle optimizado y carga rápida en producción.
                 </p>
               </CardContent>
-            </Card>
+            </GlowingCard>
           </div>
         </section>
 
@@ -253,8 +246,12 @@ const Home = () => {
                 role="region"
                 aria-labelledby="controls-title"
               >
-                <h3 id="controls-title" className="font-semibold mb-2">
-                  🎮 Controles 3D:
+                <h3
+                  id="controls-title"
+                  className="font-semibold mb-2 flex items-center gap-2"
+                >
+                  <MousePointer className="w-5 h-5 text-blue-500" />
+                  Controles 3D:
                 </h3>
                 <ul
                   className="text-sm space-y-1 text-muted-foreground"
@@ -279,8 +276,12 @@ const Home = () => {
                 role="region"
                 aria-labelledby="commands-title"
               >
-                <h3 id="commands-title" className="font-semibold mb-2">
-                  🚀 Comandos de Desarrollo:
+                <h3
+                  id="commands-title"
+                  className="font-semibold mb-2 flex items-center gap-2"
+                >
+                  <Terminal className="w-5 h-5 text-green-500" />
+                  Comandos de Desarrollo:
                 </h3>
                 <ul
                   className="text-sm space-y-1 text-muted-foreground font-mono"

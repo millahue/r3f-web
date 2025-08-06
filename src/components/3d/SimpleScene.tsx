@@ -70,11 +70,11 @@ const SimpleScene = ({ className }: SimpleSceneProps) => {
             color="#ffffff"
           />
 
-          {/* Cubos básicos que sabemos que funcionan */}
-          <RotatingCube position={[-3, -1, 0]} color="#ff6b6b" />
-          <RotatingCube position={[3, -1, 0]} color="#4ecdc4" />
-          <RotatingCube position={[0, 1, 0]} color="#45b7d1" />
-          <RotatingCube position={[0, -3, 0]} color="#96ceb4" />
+          {/* Cubos básicos distribuidos en las esquinas */}
+          <RotatingCube position={[-6, -1, -6]} color="#ff6b6b" />
+          <RotatingCube position={[6, -1, -6]} color="#4ecdc4" />
+          <RotatingCube position={[-6, -1, 6]} color="#45b7d1" />
+          <RotatingCube position={[6, -1, 6]} color="#96ceb4" />
 
           {/* Elementos geométricos básicos */}
           <FloatingSphere />

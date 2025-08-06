@@ -25,7 +25,7 @@ export const FloatingSphere = () => {
   })
 
   return (
-    <mesh ref={meshRef} position={[2, 0, 0]}>
+    <mesh ref={meshRef} position={[-4, 0, 0]}>
       <Sphere args={[0.8, 32, 32]}>
         <meshStandardMaterial
           color="#4f46e5"
@@ -58,7 +58,7 @@ export const SpinningTorus = () => {
   })
 
   return (
-    <mesh ref={meshRef} position={[-2, 1, 1]}>
+    <mesh ref={meshRef} position={[4, 1, -3]}>
       <Torus args={[1, 0.4, 16, 32]}>
         <meshStandardMaterial color="#10b981" metalness={0.5} roughness={0.3} />
       </Torus>
@@ -79,7 +79,7 @@ export const PulsatingOctahedron = () => {
   })
 
   return (
-    <mesh ref={meshRef} position={[0, -2, -1]}>
+    <mesh ref={meshRef} position={[0, -2, 4]}>
       <Octahedron args={[1]}>
         <meshStandardMaterial
           color="#f59e0b"
@@ -107,7 +107,7 @@ export const AnimatedIcosahedron = () => {
   })
 
   return (
-    <mesh ref={meshRef} position={[3, 1, 2]}>
+    <mesh ref={meshRef} position={[-5, 1, -4]}>
       <Icosahedron args={[0.7]}>
         <meshStandardMaterial
           color="#8b5cf6"
@@ -165,7 +165,7 @@ export const DancingTetrahedron = () => {
   })
 
   return (
-    <mesh ref={meshRef} position={[-3, 0, -2]}>
+    <mesh ref={meshRef} position={[7, 0, 3]}>
       <Tetrahedron args={[1]}>
         <meshStandardMaterial
           color="#06b6d4"

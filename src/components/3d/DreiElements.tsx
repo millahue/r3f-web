@@ -32,7 +32,7 @@ export function InteractiveRoundedBox() {
   return (
     <mesh
       ref={meshRef}
-      position={[2, 2, 0]}
+      position={[-1, 2, -5]}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
       onClick={() => setClicked(!clicked)}
@@ -61,7 +61,7 @@ export function GlowingCylinder() {
 
   return (
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
-      <mesh ref={meshRef} position={[-2, 1, 1]}>
+      <mesh ref={meshRef} position={[2, 1, 5]}>
         <Cylinder args={[0.5, 0.8, 2, 8]}>
           <meshStandardMaterial
             color="#9b59b6"
@@ -97,7 +97,7 @@ export function OrbitingCone() {
   })
 
   return (
-    <mesh ref={meshRef} position={[0, -1, 0]}>
+    <mesh ref={meshRef} position={[-7, -1, 0]}>
       <Cone args={[0.6, 1.5, 6]}>
         <meshStandardMaterial
           color="#2ecc71"
@@ -124,7 +124,7 @@ export function PulsatingRing() {
   })
 
   return (
-    <mesh ref={meshRef} position={[0, 2.5, -1]}>
+    <mesh ref={meshRef} position={[5, 2.5, -1]}>
       <Ring args={[0.5, 1, 16]}>
         <meshStandardMaterial
           color="#f39c12"
@@ -152,7 +152,7 @@ export function WavyPlane() {
   })
 
   return (
-    <mesh ref={meshRef} position={[0, -3, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+    <mesh ref={meshRef} position={[-3, -3, 2]} rotation={[-Math.PI / 2, 0, 0]}>
       <planeGeometry args={[4, 4, 20, 20]} />
       <meshStandardMaterial
         color="#3498db"

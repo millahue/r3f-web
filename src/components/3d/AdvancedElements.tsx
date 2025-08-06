@@ -8,7 +8,7 @@ import {
   ContactShadows,
   MeshReflectorMaterial,
 } from '@react-three/drei'
-import { Mesh, Group } from 'three'
+import type { Mesh, Group } from 'three'
 
 // Torus con material distorsionado
 export function DistortedTorus() {
@@ -22,7 +22,7 @@ export function DistortedTorus() {
   })
 
   return (
-    <mesh ref={meshRef} position={[3, 0, -2]}>
+    <mesh ref={meshRef} position={[6, 0, -7]}>
       <torusGeometry args={[1, 0.3, 16, 100]} />
       <MeshDistortMaterial
         color="#8b5cf6"
@@ -46,7 +46,7 @@ export function WobbleBox() {
   })
 
   return (
-    <mesh ref={meshRef} position={[-3, 1, 0]} castShadow receiveShadow>
+    <mesh ref={meshRef} position={[-6, 1, 5]} castShadow receiveShadow>
       <boxGeometry args={[1.5, 1.5, 1.5]} />
       <MeshWobbleMaterial
         color="#10b981"
@@ -99,7 +99,7 @@ export function DecalBox() {
   })
 
   return (
-    <mesh ref={meshRef} position={[0, 0, 3]}>
+    <mesh ref={meshRef} position={[1, 0, 6]}>
       <boxGeometry args={[2, 2, 2]} />
       <meshStandardMaterial color="#34d399" metalness={0.6} roughness={0.4} />
     </mesh>
