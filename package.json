@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:gh-pages": "NODE_ENV=production next build && touch out/.nojekyll",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",

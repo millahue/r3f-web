@@ -206,7 +206,24 @@ El proyecto incluye soporte completo para PWA:
 
 ## 🌐 Deployment
 
-### Vercel (Recomendado)
+### GitHub Pages (Configurado)
+
+El proyecto está configurado para deploy automático en GitHub Pages:
+
+```bash
+# Deploy automático en push a main
+git add .
+git commit -m "feat: deploy to GitHub Pages"
+git push origin main
+```
+
+- **URL de producción**: `https://millahue.github.io/r3f-web`
+- **Deploy automático**: ✅ GitHub Actions workflow
+- **Static export**: ✅ Next.js configured
+
+Ver `DEPLOY.md` para instrucciones detalladas.
+
+### Vercel (Alternativo)
 
 ```bash
 npm install -g vercel

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { withBasePath } from '@/lib/paths'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -197,7 +198,7 @@ export default function RootLayout({
         {/* Preload critical resources */}
         <link
           rel="preload"
-          href="/fonts/GeistVF.woff2"
+          href={withBasePath('/fonts/GeistVF.woff2')}
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"

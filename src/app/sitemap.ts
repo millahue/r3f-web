@@ -1,7 +1,12 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
+
+export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://r3f-web.vercel.app'
+  const baseUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://millahue.github.io/r3f-web'
+      : 'http://localhost:3002'
 
   return [
     {
