@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -219,67 +220,74 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-background text-foreground`}
         suppressHydrationWarning
       >
-        {/* Skip to main content for screen readers */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-          Ir al contenido principal
-        </a>
+          {/* Skip to main content for screen readers */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+          >
+            Ir al contenido principal
+          </a>
 
-        {/* Navigation landmark for screen readers */}
-        <div role="banner" aria-label="Navegación principal del sitio">
-          {/* Header content will go here */}
-        </div>
-
-        {/* Main content area */}
-        <main
-          id="main-content"
-          role="main"
-          aria-label="Contenido principal"
-          className="min-h-screen"
-        >
-          {children}
-        </main>
-
-        {/* Footer landmark */}
-        <footer
-          role="contentinfo"
-          aria-label="Información del sitio y enlaces adicionales"
-          className="border-t border-border/40 bg-background/80 backdrop-blur-sm"
-        >
-          <div className="container mx-auto px-4 py-6">
-            <div className="text-center text-sm text-muted-foreground">
-              <p>
-                © 2024 R3F Web Project. Construido con{" "}
-                <span className="text-primary font-medium">Next.js 15</span>,{" "}
-                <span className="text-primary font-medium">React 19</span> y{" "}
-                <span className="text-primary font-medium">
-                  React Three Fiber
-                </span>
-                .
-              </p>
-              <p className="mt-2">
-                <span className="inline-flex items-center gap-2">
-                  <span
-                    className="w-2 h-2 bg-green-500 rounded-full animate-pulse"
-                    aria-hidden="true"
-                  ></span>
-                  <span className="sr-only">Estado del proyecto: </span>
-                  Proyecto activo y en desarrollo
-                </span>
-              </p>
-            </div>
+          {/* Navigation landmark for screen readers */}
+          <div role="banner" aria-label="Navegación principal del sitio">
+            {/* Header content will go here */}
           </div>
-        </footer>
 
-        {/* Live region for screen reader announcements */}
-        <div
-          id="announcements"
-          aria-live="polite"
-          aria-atomic="true"
-          className="sr-only"
-        />
+          {/* Main content area */}
+          <main
+            id="main-content"
+            role="main"
+            aria-label="Contenido principal"
+            className="min-h-screen"
+          >
+            {children}
+          </main>
+
+          {/* Footer landmark */}
+          <footer
+            role="contentinfo"
+            aria-label="Información del sitio y enlaces adicionales"
+            className="border-t border-border/40 bg-background/80 backdrop-blur-sm"
+          >
+            <div className="container mx-auto px-4 py-6">
+              <div className="text-center text-sm text-muted-foreground">
+                <p>
+                  © 2024 R3F Web Project. Construido con{" "}
+                  <span className="text-primary font-medium">Next.js 15</span>,{" "}
+                  <span className="text-primary font-medium">React 19</span> y{" "}
+                  <span className="text-primary font-medium">
+                    React Three Fiber
+                  </span>
+                  .
+                </p>
+                <p className="mt-2">
+                  <span className="inline-flex items-center gap-2">
+                    <span
+                      className="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+                      aria-hidden="true"
+                    ></span>
+                    <span className="sr-only">Estado del proyecto: </span>
+                    Proyecto activo y en desarrollo
+                  </span>
+                </p>
+              </div>
+            </div>
+          </footer>
+
+          {/* Live region for screen reader announcements */}
+          <div
+            id="announcements"
+            aria-live="polite"
+            aria-atomic="true"
+            className="sr-only"
+          />
+        </ThemeProvider>
       </body>
     </html>
   );
