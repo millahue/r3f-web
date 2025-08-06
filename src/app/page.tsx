@@ -13,7 +13,7 @@ import {
 import { ModeToggle } from "@/components/theme-toggle";
 
 // Dynamic import to avoid SSR issues with Three.js
-const ThreeScene = dynamic(() => import("@/components/3d/ThreeScene"), {
+const ThreeScene = dynamic(() => import("@/components/3d/SimpleScene"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-[400px] bg-gradient-to-br from-slate-900 to-slate-700 rounded-lg flex items-center justify-center">

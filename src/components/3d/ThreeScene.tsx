@@ -9,6 +9,32 @@ import {
 } from "@react-three/drei";
 import { Suspense } from "react";
 import RotatingCube from "./RotatingCube";
+import {
+  FloatingSphere,
+  SpinningTorus,
+  PulsatingOctahedron,
+  AnimatedIcosahedron,
+  OrbitingDodecahedron,
+  DancingTetrahedron,
+} from "./GeometricShapes";
+import {
+  InteractiveRoundedBox,
+  GlowingCylinder,
+  OrbitingCone,
+  PulsatingRing,
+  WavyPlane,
+  FloatingText3D,
+  SceneEffects,
+} from "./DreiElements";
+import {
+  DistortedTorus,
+  WobbleBox,
+  TrailingGroup,
+  DecalBox,
+  ReflectiveSurface,
+  GroundShadows,
+  EnhancedLighting,
+} from "./AdvancedElements";
 
 interface ThreeSceneProps {
   className?: string;
@@ -23,38 +49,49 @@ export default function ThreeScene({ className }: ThreeSceneProps) {
         gl={{ antialias: true }}
         className="bg-gradient-to-br from-slate-900 to-slate-700"
       >
-        <PerspectiveCamera makeDefault position={[0, 0, 5]} />
+        <PerspectiveCamera makeDefault position={[0, 0, 8]} />
 
-        {/* Lighting setup */}
-        <ambientLight intensity={0.5} />
-        <spotLight
-          position={[10, 10, 10]}
-          angle={0.15}
-          penumbra={1}
-          decay={0}
-          intensity={Math.PI}
-          castShadow
-        />
-        <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+        {/* Enhanced Lighting setup */}
+        <EnhancedLighting />
 
         <Suspense fallback={null}>
+          {/* Efectos de ambiente */}
+          <SceneEffects />
+
           {/* Environment for reflections */}
           <Environment preset="city" />
 
-          {/* 3D Objects */}
-          <RotatingCube position={[-2, 0, 0]} color="#ff6b6b" />
-          <RotatingCube position={[2, 0, 0]} color="#4ecdc4" />
-          <RotatingCube position={[0, 2, 0]} color="#45b7d1" />
+          {/* Elementos geométricos básicos */}
+          <FloatingSphere />
+          <SpinningTorus />
+          <PulsatingOctahedron />
+          <AnimatedIcosahedron />
+          <OrbitingDodecahedron />
+          <DancingTetrahedron />
 
-          {/* Ground plane */}
-          <mesh
-            rotation={[-Math.PI / 2, 0, 0]}
-            position={[0, -2, 0]}
-            receiveShadow
-          >
-            <planeGeometry args={[20, 20]} />
-            <meshStandardMaterial color="#2a2a2a" />
-          </mesh>
+          {/* Elementos drei avanzados */}
+          <InteractiveRoundedBox />
+          <GlowingCylinder />
+          <OrbitingCone />
+          <PulsatingRing />
+          <WavyPlane />
+          <FloatingText3D />
+
+          {/* Elementos avanzados con materiales especiales */}
+          <DistortedTorus />
+          <WobbleBox />
+          <TrailingGroup />
+          <DecalBox />
+
+          {/* Cubos originales */}
+          <RotatingCube position={[-1, -1, 2]} color="#ff6b6b" />
+          <RotatingCube position={[1, -1, 2]} color="#4ecdc4" />
+
+          {/* Superficie reflectante */}
+          <ReflectiveSurface />
+
+          {/* Sombras de contacto */}
+          <GroundShadows />
         </Suspense>
 
         {/* Controls */}
