@@ -12,7 +12,7 @@ import {
   Sparkles,
   Stars,
 } from '@react-three/drei'
-import { Mesh, Vector3 } from 'three'
+import { type Mesh, Vector3 } from 'three'
 
 // RoundedBox interactivo
 export function InteractiveRoundedBox() {
