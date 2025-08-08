@@ -10,6 +10,7 @@
 !.yarn/releases
 !.yarn/versions
 .history
+
 # testing
 /coverage
 
@@ -19,6 +20,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -39,3 +41,59 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# SonarQube/SonarCloud
+.scannerwork/
+.sonar/
+*-sonar-report.json
+eslint-results.sarif
+
+# Lighthouse CI
+.lighthouseci/
+lhci_reports/
+
+# Bundle analysis
+.next/analyze/
+bundle-analyzer-report.html
+
+# IDE files
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Size limit reports
+size-limit-report.json
+
+# Coverage reports
+coverage.lcov
+.nyc_output/
+
+# Semantic release
+.semantic-release/
+
+# Lock files (keep only one)
+# yarn.lock
+# pnpm-lock.yaml

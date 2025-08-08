@@ -1,0 +1,2 @@
+# CodeQL ignore patterns for R3F
+src/components/3d/

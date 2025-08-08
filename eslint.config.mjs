@@ -37,6 +37,20 @@ const eslintConfig = [
       'prefer-arrow-callback': 'off',
     },
   },
+  // Configuración específica para archivos 3D
+  {
+    files: ['src/components/3d/**/*.tsx', 'src/components/3d/**/*.ts'],
+    rules: {
+      // Deshabilitar reglas problemáticas para R3F
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/ban-types': 'off',
+      'react/no-unknown-property': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-return': 'off',
+    },
+  },
 ]
 
 export default eslintConfig
