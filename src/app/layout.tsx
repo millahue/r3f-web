@@ -112,11 +112,6 @@ export const metadata: Metadata = {
   // App-specific
   applicationName: 'R3F Web Project',
   referrer: 'origin-when-cross-origin',
-  colorScheme: 'dark light',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
-  ],
 
   // Icons
   icons: {
@@ -154,7 +149,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="es" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* Structured Data - JSON-LD */}
         <script
@@ -254,7 +249,7 @@ export default function RootLayout({
           <footer
             role="contentinfo"
             aria-label="Información del sitio y enlaces adicionales"
-            className="border-t border-border/40 bg-background/80 backdrop-blur-sm"
+            className="border-t border-slate-200 dark:border-slate-800 bg-background/80 backdrop-blur-sm"
           >
             <div className="container mx-auto px-4 py-6">
               <div className="text-center text-sm text-muted-foreground">

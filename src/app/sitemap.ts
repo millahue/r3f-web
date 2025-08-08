@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
     process.env.NODE_ENV === 'production'
       ? 'https://millahue.github.io/r3f-web'
-      : 'http://localhost:3002'
+      : 'http://localhost:3000'
 
   return [
     {
