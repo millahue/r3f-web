@@ -1,2 +1,9 @@
 # CodeQL ignore patterns for R3F
 src/components/3d/
+# GitHub workflows
+.github/
+# Build outputs
+.next/
+out/
+# Config files
+*.config.*

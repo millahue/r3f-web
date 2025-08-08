@@ -25,11 +25,18 @@ const RotatingCube = ({
     }
   })
 
+  let scale = 1
+  if (clicked) {
+    scale = 1.5
+  } else if (hovered) {
+    scale = 1.2
+  }
+
   return (
     <mesh
       ref={meshRef}
       position={position}
-      scale={clicked ? 1.5 : hovered ? 1.2 : 1}
+      scale={scale}
       onClick={() => setClicked(!clicked)}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}

@@ -66,11 +66,8 @@ const Home = () => {
             Un proyecto moderno con Next.js 15, React 19, R3F, Tailwind CSS v4 y
             Shadcn/ui. Explora el futuro del desarrollo web con 3D interactivo.
           </p>
-          <div
-            className="flex gap-4 justify-center"
-            role="group"
-            aria-label="Acciones principales"
-          >
+          <fieldset className="flex gap-4 justify-center">
+            <legend className="sr-only">Acciones principales</legend>
             <Button
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-purple-600"
@@ -87,7 +84,7 @@ const Home = () => {
             <span id="docs-desc" className="sr-only">
               Acceder a la documentación completa del proyecto
             </span>
-          </div>
+          </fieldset>
         </div>
 
         {/* 3D Scene */}
@@ -119,114 +116,123 @@ const Home = () => {
           <h2 id="features-title" className="sr-only">
             Características principales del proyecto
           </h2>
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
-            role="list"
-          >
-            <GlowingCard>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-green-500" />
-                  Next.js 15
-                </CardTitle>
-                <CardDescription>
-                  App Router, Server Components, y Turbopack para máximo
-                  rendimiento
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  La última versión de Next.js con todas las características
-                  modernas.
-                </p>
-              </CardContent>
-            </GlowingCard>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <li>
+              <GlowingCard>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-green-500" />
+                    Next.js 15
+                  </CardTitle>
+                  <CardDescription>
+                    App Router, Server Components, y Turbopack para máximo
+                    rendimiento
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    La última versión de Next.js con todas las características
+                    modernas.
+                  </p>
+                </CardContent>
+              </GlowingCard>
+            </li>
 
-            <GlowingCard>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Box className="w-5 h-5 text-blue-500" />
-                  React Three Fiber
-                </CardTitle>
-                <CardDescription>
-                  Renderizado 3D declarativo con React y Three.js
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Componentes 3D interactivos con la potencia de Three.js.
-                </p>
-              </CardContent>
-            </GlowingCard>
+            <li>
+              <GlowingCard>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Box className="w-5 h-5 text-blue-500" />
+                    React Three Fiber
+                  </CardTitle>
+                  <CardDescription>
+                    Renderizado 3D declarativo con React y Three.js
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    Componentes 3D interactivos con la potencia de Three.js.
+                  </p>
+                </CardContent>
+              </GlowingCard>
+            </li>
 
-            <GlowingCard>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Palette className="w-5 h-5 text-purple-500" />
-                  Tailwind CSS v4
-                </CardTitle>
-                <CardDescription>
-                  Utility-first CSS con las últimas características
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Estilos modernos con soporte para gradientes P3 y más.
-                </p>
-              </CardContent>
-            </GlowingCard>
+            <li>
+              <GlowingCard>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Palette className="w-5 h-5 text-purple-500" />
+                    Tailwind CSS v4
+                  </CardTitle>
+                  <CardDescription>
+                    Utility-first CSS con las últimas características
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    Estilos modernos con soporte para gradientes P3 y más.
+                  </p>
+                </CardContent>
+              </GlowingCard>
+            </li>
 
-            <GlowingCard>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Component className="w-5 h-5 text-orange-500" />
-                  Shadcn/ui
-                </CardTitle>
-                <CardDescription>
-                  Componentes hermosos y accesibles
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  UI components modernos con diseño consistente.
-                </p>
-              </CardContent>
-            </GlowingCard>
+            <li>
+              <GlowingCard>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Component className="w-5 h-5 text-orange-500" />
+                    Shadcn/ui
+                  </CardTitle>
+                  <CardDescription>
+                    Componentes hermosos y accesibles
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    UI components modernos con diseño consistente.
+                  </p>
+                </CardContent>
+              </GlowingCard>
+            </li>
 
-            <GlowingCard>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Code2 className="w-5 h-5 text-red-500" />
-                  TypeScript
-                </CardTitle>
-                <CardDescription>
-                  Desarrollo type-safe y productivo
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Tipado estático para mejor desarrollo y mantenimiento.
-                </p>
-              </CardContent>
-            </GlowingCard>
+            <li>
+              <GlowingCard>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Code2 className="w-5 h-5 text-red-500" />
+                    TypeScript
+                  </CardTitle>
+                  <CardDescription>
+                    Desarrollo type-safe y productivo
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    Tipado estático para mejor desarrollo y mantenimiento.
+                  </p>
+                </CardContent>
+              </GlowingCard>
+            </li>
 
-            <GlowingCard>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Gauge className="w-5 h-5 text-teal-500" />
-                  Optimizado
-                </CardTitle>
-                <CardDescription>
-                  Rendimiento y experiencia de usuario excepcionales
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Bundle optimizado y carga rápida en producción.
-                </p>
-              </CardContent>
-            </GlowingCard>
-          </div>
+            <li>
+              <GlowingCard>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Gauge className="w-5 h-5 text-teal-500" />
+                    Optimizado
+                  </CardTitle>
+                  <CardDescription>
+                    Rendimiento y experiencia de usuario excepcionales
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    Bundle optimizado y carga rápida en producción.
+                  </p>
+                </CardContent>
+              </GlowingCard>
+            </li>
+          </ul>
         </section>
 
         {/* Instructions */}
@@ -253,22 +259,11 @@ const Home = () => {
                   <MousePointer className="w-5 h-5 text-blue-500" />
                   Controles 3D:
                 </h3>
-                <ul
-                  className="text-sm space-y-1 text-muted-foreground"
-                  role="list"
-                >
-                  <li role="listitem">
-                    • Haz clic y arrastra para rotar la cámara
-                  </li>
-                  <li role="listitem">
-                    • Usa la rueda del mouse para hacer zoom
-                  </li>
-                  <li role="listitem">
-                    • Haz clic en los cubos para interactuar
-                  </li>
-                  <li role="listitem">
-                    • Mantén presionado y arrastra para mover la vista
-                  </li>
+                <ul className="text-sm space-y-1 text-muted-foreground">
+                  <li>• Haz clic y arrastra para rotar la cámara</li>
+                  <li>• Usa la rueda del mouse para hacer zoom</li>
+                  <li>• Haz clic en los cubos para interactuar</li>
+                  <li>• Mantén presionado y arrastra para mover la vista</li>
                 </ul>
               </div>
               <div
@@ -283,25 +278,22 @@ const Home = () => {
                   <Terminal className="w-5 h-5 text-green-500" />
                   Comandos de Desarrollo:
                 </h3>
-                <ul
-                  className="text-sm space-y-1 text-muted-foreground font-mono"
-                  role="list"
-                >
-                  <li role="listitem">
+                <ul className="text-sm space-y-1 text-muted-foreground font-mono">
+                  <li>
                     •{' '}
                     <code className="bg-background px-2 py-1 rounded">
                       npm run dev
                     </code>{' '}
                     - Iniciar servidor de desarrollo
                   </li>
-                  <li role="listitem">
+                  <li>
                     •{' '}
                     <code className="bg-background px-2 py-1 rounded">
                       npm run build
                     </code>{' '}
                     - Construir para producción
                   </li>
-                  <li role="listitem">
+                  <li>
                     •{' '}
                     <code className="bg-background px-2 py-1 rounded">
                       npx shadcn@latest add [component]

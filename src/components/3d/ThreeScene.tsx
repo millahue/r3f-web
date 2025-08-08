@@ -40,7 +40,7 @@ interface ThreeSceneProps {
   className?: string
 }
 
-export default function ThreeScene({ className }: ThreeSceneProps) {
+export default function ThreeScene({ className }: Readonly<ThreeSceneProps>) {
   return (
     <div className={`w-full h-full ${className}`}>
       <Canvas

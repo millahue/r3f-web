@@ -95,9 +95,12 @@ const SimpleScene = ({ className }: SimpleSceneProps) => {
 
           {/* Base reflectante como suelo */}
           <mesh
-            rotation={[-Math.PI / 2, 0, 0]}
+            ref={mesh => {
+              if (mesh) {
+                mesh.rotation.x = -Math.PI / 2
+              }
+            }}
             position={[0, -4, 0]}
-            receiveShadow
           >
             <planeGeometry args={[20, 20]} />
             <MeshReflectorMaterial

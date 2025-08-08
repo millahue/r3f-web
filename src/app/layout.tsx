@@ -166,7 +166,7 @@ export default function RootLayout({
               name: 'R3F Web Project',
               description:
                 'Proyecto moderno de desarrollo web 3D con Next.js, React Three Fiber y más',
-              url: 'https://r3f-web.vercel.app',
+              url: 'https://r3f-web.millahue.tech',
               author: {
                 '@type': 'Organization',
                 name: 'R3F Web Team',
@@ -236,9 +236,9 @@ export default function RootLayout({
           </a>
 
           {/* Navigation landmark for screen readers */}
-          <div role="banner" aria-label="Navegación principal del sitio">
+          <header aria-label="Navegación principal del sitio">
             {/* Header content will go here */}
-          </div>
+          </header>
 
           {/* Main content area */}
           <main
@@ -264,7 +264,7 @@ export default function RootLayout({
                   <span className="text-primary font-medium">React 19</span> y{' '}
                   <span className="text-primary font-medium">
                     React Three Fiber
-                  </span>
+                  </span>{' '}
                   .
                 </p>
                 <p className="mt-2">
@@ -272,7 +272,7 @@ export default function RootLayout({
                     <span
                       className="w-2 h-2 bg-green-500 rounded-full animate-pulse"
                       aria-hidden="true"
-                    ></span>
+                    ></span>{' '}
                     <span className="sr-only">Estado del proyecto: </span>
                     Proyecto activo y en desarrollo
                   </span>

@@ -28,21 +28,22 @@ const GlowingCard = ({
   glowOptions = {},
 }: GlowingCardProps) => {
   return (
-    <Card
-      className={cn(
-        'relative overflow-hidden hover:shadow-lg transition-shadow',
-        className
-      )}
-      role="listitem"
-    >
-      <GlowingEffect
-        proximity={50}
-        spread={60}
-        disabled={false}
-        {...glowOptions}
-      />
-      {children}
-    </Card>
+    <li>
+      <Card
+        className={cn(
+          'relative overflow-hidden hover:shadow-lg transition-shadow',
+          className
+        )}
+      >
+        <GlowingEffect
+          proximity={50}
+          spread={60}
+          disabled={false}
+          {...glowOptions}
+        />
+        {children}
+      </Card>
+    </li>
   )
 }
 

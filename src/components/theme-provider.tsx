@@ -18,7 +18,7 @@ export function ThemeProvider({
   enableSystem = true,
   disableTransitionOnChange = false,
   ...props
-}: ThemeProviderProps) {
+}: Readonly<ThemeProviderProps>) {
   return (
     <NextThemesProvider
       attribute={attribute}

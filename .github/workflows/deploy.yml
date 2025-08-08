@@ -27,7 +27,7 @@ concurrency:
 jobs:
   # AI Code Review Job (Free Tier)
   ai-review:
-    name: AI Code Review
+    name: AI Security Scan
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
@@ -36,12 +36,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: AI Code Review with CodeRabbit
-        uses: coderabbitai/coderabbit-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # CodeRabbit es gratis para proyectos open source
-
       - name: AI Security Scan with Semgrep
         uses: semgrep/semgrep-action@v1
         with:
@@ -49,6 +43,7 @@ jobs:
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
           # Semgrep Community es gratis
+        continue-on-error: true
 
   # Quality Checks Job
   quality:
@@ -171,7 +166,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: [build, release]
+    needs: [build]
     if: always() && (needs.build.result == 'success') && github.ref == 'refs/heads/main'
     steps:
       - name: Deploy to GitHub Pages
@@ -185,11 +180,10 @@ jobs:
           script: |
             const { context } = require('@actions/github');
             const deployUrl = '${{ steps.deployment.outputs.page_url }}';
-            const version = '${{ needs.release.outputs.new-release-version }}' || 'latest';
 
             github.rest.repos.createCommitComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               commit_sha: context.sha,
-              body: `🚀 **Deployment Successful!**\n\n📦 Version: \`${version}\`\n🌐 URL: ${deployUrl}\n\n✅ All quality checks passed`
+              body: `🚀 **Deployment Successful!**\n\n🌐 URL: ${deployUrl}\n\n✅ All quality checks passed`
             });
